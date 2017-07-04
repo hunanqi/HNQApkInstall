@@ -1,0 +1,22 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          package="hnq.mylibrary">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <application
+        android:allowBackup="true"
+        android:label="@string/app_name"
+        android:supportsRtl="true">
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="hnq.mylibrary.apk.fileprovider"
+            android:grantUriPermissions="true"
+            android:exported="false">
+            <!--元数据-->
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/apk_install" />
+        </provider>
+        <service android:name="hnq.mylibrary.DownApkIntentService"></service>
+    </application>
+
+</manifest>
